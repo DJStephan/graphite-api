@@ -32,9 +32,9 @@ from .utils import epoch, to_seconds
 try:
     from .render.glyph import format_units
 except NameError:
-    CAIRO_DISABLED=True
+    CAIRO_DISABLED = True
 else:
-    CAIRO_DISABLED=False
+    CAIRO_DISABLED = False
 
 NAN = float('NaN')
 INF = float('inf')

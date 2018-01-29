@@ -41,17 +41,17 @@ latex_elements = {
 
 latex_documents = [
     ('index', 'Graphite-API.tex', 'Graphite-API Documentation',
-     'Bruno Renié', 'manual'),
+     u'Bruno Renié', 'manual'),
 ]
 
 man_pages = [
     ('index', 'graphite-api', 'Graphite-API Documentation',
-     ['Bruno Renié'], 1)
+     [u'Bruno Renié'], 1)
 ]
 
 texinfo_documents = [
     ('index', 'Graphite-API', 'Graphite-API Documentation',
-     'Bruno Renié', 'Graphite-API', 'One line description of project.',
+     u'Bruno Renié', 'Graphite-API', 'One line description of project.',
      'Miscellaneous'),
 ]
 
@@ -63,7 +63,7 @@ class RenderFunctionDocumenter(autodoc.FunctionDocumenter):
     def can_document_member(cls, member, membername, isattr, parent):
         return autodoc.FunctionDocumenter.can_document_member(
             member, membername, isattr, parent
-        ) and parent.name == 'graphite_api.functions'
+        ) and parent.name == 'influxgraph_graphite_api.functions'
 
     def format_args(self):
         args = super(RenderFunctionDocumenter, self).format_args()

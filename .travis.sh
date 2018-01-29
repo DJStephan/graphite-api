@@ -3,9 +3,9 @@ set -xe
 
 if [ $TOXENV == "coverage" ]
 then
-	pip install -r requirements-dev.txt coverage coveralls
+	pip install -r requirements-dev.txt coverage codecov
 	coverage run unittest_main.py
-	coveralls
+	codecov
 else
 	tox -e $TOXENV
 fi

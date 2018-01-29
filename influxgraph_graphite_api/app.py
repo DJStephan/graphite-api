@@ -1,6 +1,5 @@
 import csv
 import json
-import math
 import time
 from collections import defaultdict
 from datetime import datetime
@@ -430,11 +429,12 @@ def render():
                                for series in context['data']
                                if len(series) > 0]
             else:
-                series_data = [{'target': series.name,
-                                'datapoints': zip(
-                                    series,
-                                    range(series.start, series.end + series.step,
-                                          series.step))}
+                series_data = [{
+                    'target': series.name,
+                    'datapoints': zip(
+                        series,
+                        range(series.start, series.end + series.step,
+                              series.step))}
                                for series in context['data']]
             response = jsonify(series_data, headers=headers)
             if use_cache:
@@ -447,10 +447,10 @@ def render():
             series_data = {}
             labels = ['Time']
             if any(context['data']):
-                datapoints = [[ts * 1000]
-                              for ts in range(context['data'][0].start,
-                                              context['data'][0].end,
-                                              context['data'][0].step)]
+                datapoints = [[_ts * 1000]
+                              for _ts in range(context['data'][0].start,
+                                               context['data'][0].end,
+                                               context['data'][0].step)]
                 for series in context['data']:
                     labels.append(series.name)
                     for i, point in enumerate(series):

@@ -1,6 +1,6 @@
 [run]
 branch = True
-source = graphite_api
+source = influxgraph_graphite_api
 
 [report]
-omit = *_vendor*
+omit = *_vendor*, */_version.py

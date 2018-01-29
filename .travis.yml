@@ -8,7 +8,6 @@ env:
   - TOXENV=flask09
   - TOXENV=no-flask-cache
   - TOXENV=coverage
-  - TOXENV=lint
   - TOXENV=docs
 
 addons:
@@ -17,9 +16,11 @@ addons:
       - libcairo2-dev
 
 install:
-  - pip install tox
+  - pip install tox flake8
 
-script: "./.travis.sh"
+script:
+  - "./.travis.sh"
+  - flake8 influxgraph_graphite_api
 
 matrix:
   include:
